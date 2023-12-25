@@ -25,13 +25,15 @@ public class MaterialsManagement {
 
     public void MaterialsManagements() {
         int choice;
+        int sum=0;
         while (true) {
             System.out.println(materials);
             System.out.println("1. thêm " + "\n" +
                     "2.sửa" + "\n" +
                     "3.xóa" +"\n" +
                     "4.số tiền thịt đã được giảm "+"\n" +
-                    "5.số tiền bột đã được giảm ");
+                    "5.số tiền bột đã được giảm "+"\n" +
+                    "6.tổng của 10 vật liệu. ");
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
@@ -47,19 +49,34 @@ public class MaterialsManagement {
                     System.out.println(materials);
                     break;
                 case 4:
-                    for (int i = 0; i < materials.size(); i++) {
-                        if(materials.get(i) instanceof Meat){
-                            System.out.println("Gia tien cua " + materials.get(i).getName() + " la: " + materials.get(i).getRealMoney());
-                        }
-                    }
+                    priceMeat();
                     break;
                 case 5:
-                    for (int i = 0; i < materials.size(); i++) {
-                        if(materials.get(i) instanceof CrispyFlour){
-                            System.out.println("Gia tien cua " + materials.get(i).getName() + " la: " + materials.get(i).getRealMoney());
-                        }
-                    }
+                    priceCrispyFlour();
                     break;
+                case 6:
+                    for (int i = 0; i < materials.size(); i++) {
+                        sum+=materials.get(i).getCost();
+                    }
+                    System.out.println("Tổng tiền của 10 vat lieu: "+ sum);
+                    break;
+
+            }
+        }
+    }
+
+    private void priceCrispyFlour() {
+        for (int i = 0; i < materials.size(); i++) {
+            if(materials.get(i) instanceof CrispyFlour){
+                System.out.println("Gia tien cua " + materials.get(i).getName() + " la: " + materials.get(i).getRealMoney());
+            }
+        }
+    }
+
+    private void priceMeat() {
+        for (int i = 0; i < materials.size(); i++) {
+            if(materials.get(i) instanceof Meat){
+                System.out.println("Gia tien cua " + materials.get(i).getName() + " la: " + materials.get(i).getRealMoney());
             }
         }
     }
