@@ -43,6 +43,16 @@ public class CrispyFlour extends Material {
 
     @Override
     public double getRealMoney() {
-        return 0;
+        LocalDate now = LocalDate.now();
+        LocalDate mfDate = super.getManufacturingDate();
+        if (now.getYear() == mfDate.getYear()) {
+            if (mfDate.getMonthValue() - now.getMonthValue() <= 2) {
+                return this.getAmount() * 0.6;
+            } else if (mfDate.getMonthValue() - now.getMonthValue() <= 4) {
+                return this.getAmount() * 0.8;
+            }
+
+        }
+        return this.getAmount() * 0.95;
     }
 }

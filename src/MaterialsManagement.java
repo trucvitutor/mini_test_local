@@ -9,11 +9,11 @@ public class MaterialsManagement {
     List<Material> materials;
 
     {
-        Material CrispyFlour1 = new CrispyFlour("01", "bột chiên giòn", LocalDate.now(), 35000, 1);
-        Material CrispyFlour2 = new CrispyFlour("02", "bột chiên giòn", LocalDate.now(), 35000, 2);
-        Material CrispyFlour3 = new CrispyFlour("03", "bột chiên giòn", LocalDate.now(), 35000, 1);
-        Material CrispyFlour4 = new CrispyFlour("04", "bột chiên giòn", LocalDate.now(), 35000, 7);
-        Material CrispyFlour5 = new CrispyFlour("05", "bột chiên giòn", LocalDate.now(), 35000, 9);
+        Material CrispyFlour1 = new CrispyFlour("01", "bột chiên giòn", LocalDate.parse("2023-09-09"), 35000, 1);
+        Material CrispyFlour2 = new CrispyFlour("02", "bột chiên giòn", LocalDate.parse("2023-09-09"), 35000, 2);
+        Material CrispyFlour3 = new CrispyFlour("03", "bột chiên giòn", LocalDate.parse("2023-09-09"), 35000, 1);
+        Material CrispyFlour4 = new CrispyFlour("04", "bột chiên giòn", LocalDate.parse("2023-09-09"), 35000, 7);
+        Material CrispyFlour5 = new CrispyFlour("05", "bột chiên giòn", LocalDate.parse("2023-09-09"), 35000, 9);
         Material Meat1 = new Meat("06", "thịt trúc vi", LocalDate.parse("2023-12-26"), 400000, 4.0);
         Material Meat2 = new Meat("07", "thịt nguội", LocalDate.parse("2023-12-25"), 400000, 4.0);
         Material Meat3 = new Meat("08", "thịt nóng", LocalDate.parse("2024-01-01"), 400000, 4.0);
@@ -30,7 +30,8 @@ public class MaterialsManagement {
             System.out.println("1. thêm " + "\n" +
                     "2.sửa" + "\n" +
                     "3.xóa" +"\n" +
-                    "4.số tiền thịt đã được giảm ");
+                    "4.số tiền thịt đã được giảm "+"\n" +
+                    "5.số tiền bột đã được giảm ");
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
@@ -48,6 +49,13 @@ public class MaterialsManagement {
                 case 4:
                     for (int i = 0; i < materials.size(); i++) {
                         if(materials.get(i) instanceof Meat){
+                            System.out.println("Gia tien cua " + materials.get(i).getName() + " la: " + materials.get(i).getRealMoney());
+                        }
+                    }
+                    break;
+                case 5:
+                    for (int i = 0; i < materials.size(); i++) {
+                        if(materials.get(i) instanceof CrispyFlour){
                             System.out.println("Gia tien cua " + materials.get(i).getName() + " la: " + materials.get(i).getRealMoney());
                         }
                     }
