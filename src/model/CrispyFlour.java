@@ -1,6 +1,9 @@
+package model;
+
 import java.time.LocalDate;
 
 public class CrispyFlour extends Material {
+
     private int quantity;
 
     public CrispyFlour(String id, String name, LocalDate manufacturingDate, int cost) {
@@ -39,6 +42,9 @@ public class CrispyFlour extends Material {
                 ",cost=" + super.getCost() +
                 "quantity=" + quantity +
                 '}';
+    }
+    public String toVer(){
+        return super.getId()+","+super.getName()+","+super.getManufacturingDate()+","+super.getCost()+","+quantity;
     }
 
     @Override

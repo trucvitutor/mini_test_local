@@ -1,6 +1,10 @@
+package model;
+
+import model.Material;
+
 import java.time.LocalDate;
 
-public class Meat extends Material{
+public class Meat extends Material {
     private double weight;
     public Meat(String id, String name, LocalDate manufacturingDate, int cost) {
         super(id, name, manufacturingDate, cost);
@@ -44,5 +48,13 @@ public class Meat extends Material{
             }
         }
         return this.getAmount() * 0.9;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 }

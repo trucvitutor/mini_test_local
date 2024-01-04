@@ -1,6 +1,11 @@
+package model;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class Material implements Discount {
+public abstract class Material implements Discount, Serializable {
+
+    private static final long serialVersionUID = 88810112004888L;
     private String id;
     private String name;
     private LocalDate manufacturingDate;
@@ -47,4 +52,13 @@ public abstract class Material implements Discount {
     public abstract double getAmount();
     public abstract LocalDate getExpiryDate();
 
+    @Override
+    public String toString() {
+        return "Material{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", manufacturingDate=" + manufacturingDate +
+                ", cost=" + cost +
+                '}';
+    }
 }
