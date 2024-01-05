@@ -26,4 +26,9 @@ public class MeatService implements IMeatService{
     public void priceMeat() {
         meatRepository.priceMeat();
     }
+
+    @Override
+    public int sumMeat() {
+        return meatRepository.sumMeat();
+    }
 }

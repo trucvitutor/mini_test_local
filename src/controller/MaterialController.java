@@ -59,4 +59,9 @@ private final IMeatService iMeatService =new MeatService();
     public int sumCri() {
         return crispyFlourService.sumCri();
     }
+
+    public int sumMeat() {
+
+        return iMeatService.sumMeat();
+    }
 }

@@ -11,4 +11,6 @@ public interface IMeatRepository {
 
     void priceMeat();
 
+    int sumMeat();
+
 }

@@ -35,7 +35,6 @@ public class MaterialsManagement {
 
     public void MaterialsManagements() {
         int choice;
-      //  int sum = 0;
         while (true) {
             System.out.println("1. thêm " + "\n" +
                     "2.sửa" + "\n" +
@@ -66,10 +65,6 @@ public class MaterialsManagement {
                     break;
                 case 6:
                     sumMaterial();
-//                    for (int i = 0; i < materials.size(); i++) {
-//                      sum += materials.get(i).getCost();
-//                   }
-//                    System.out.println("Tổng tiền của 10 vat lieu: " + sum);
                     break;
                 case 7:
                     List<Material> materialList = this.materialController.findAll();
@@ -81,9 +76,31 @@ public class MaterialsManagement {
     }
 
     private void sumMaterial() {
-        int crispyFlour=this.materialController.sumCri();
-        System.out.println(crispyFlour);
-
+        int choice;
+        int crispyFlour = 0;
+        int meat = 0;
+        int sum;
+        while (true) {
+            System.out.println("Mời bạn chọn:" + "\n" + "1.tổng bột." + "\n" + "2.tổng thịt." + "\n" + "3.tổng tất cả" +
+                    "."+"\n"+"4.thoát");
+            choice = Integer.parseInt(sc.nextLine());
+            switch (choice) {
+                case 1:
+                    crispyFlour = this.materialController.sumCri();
+                    System.out.println("tổng bột" + crispyFlour);
+                    break;
+                case 2:
+                    meat = this.materialController.sumMeat();
+                    System.out.println("tổng thịt" + meat);
+                    break;
+                case 3:
+                    sum = crispyFlour + meat;
+                    System.out.println("tổng vật liệu" + sum);
+                    break;
+                case 4:
+                    return;
+            }
+        }
     }
 
     private void display(List<Material> materialList) {
@@ -188,7 +205,6 @@ public class MaterialsManagement {
         while (true) {
             System.out.println("1.addCrispyFlour" + "\n" +
                     "2.addMeat " + "\n" + "3.thoát");
-
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:

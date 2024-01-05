@@ -12,4 +12,6 @@ public interface IMeatService {
 
     void priceMeat();
 
+    int sumMeat();
+
 }
